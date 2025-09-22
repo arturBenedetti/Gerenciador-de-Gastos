@@ -1,5 +1,9 @@
-# Vue 3 + TypeScript + Vite
+# Expense Manager
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is an expense manager where you can register an expense by including what you spent on, the expense category, the value, and (optionally) add a picture of the product or the receipt. You can also register an entry to easily manage and track your expenses and income.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Stage 1
+In this MVP, the frontend is developed using Vue.js with Vite. It provides a simple interface with the main functionalities. The entries and expenses will be stored in the local storage.
+
+## Running Locally
+In the terminal, type `npm i` to install the dependencies. After that, type `npm run dev` to run the application.
