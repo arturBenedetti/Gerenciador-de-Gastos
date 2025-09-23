@@ -1,22 +1,33 @@
 <script setup lang="ts">
-import Button from '../components/buttons/Button.vue';
-import Input from '../components/inputs/Input.vue';
+import ExpenseCard from '../components/cards/ExpenseCard.vue';
 
 function buttonClick() {
   console.log('Botão clicado!');
 }
 
+const expenses = [
+  {
+    name: "Supermarket Shopping",
+    category: "Food",
+    amount: 150.75
+  },
+  {
+    name: "Netflix Subscription",
+    category: "Entertainment",
+    amount: 49.90
+  }
+];
+
+
 </script>
 
 <template>
   <div class="container">
-    <Input label="Input" placeholder="This is an input" />
-    <Button label="Button" :color="'teal'" :size="'medium'" :disabled="false" @click="buttonClick" />
+    <ExpenseCard v-for="(expense, index) in expenses" :key="index" :expense="expense" />
   </div>
 </template>
 
 <style scoped>
-
 .container {
   display: flex;
   flex-direction: column;
@@ -30,5 +41,4 @@ function buttonClick() {
   height: 100vh;
   gap: 5px;
 }
-
 </style>
