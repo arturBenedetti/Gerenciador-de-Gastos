@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import ExpenseCard from '../components/cards/ExpenseCard.vue';
-
-function buttonClick() {
+/* import ExpenseCard from '../components/cards/ExpenseCard.vue'; */
+import Header from '../components/headers/Header.vue';
+/* function buttonClick() {
   console.log('Botão clicado!');
-}
+} */
 
-const expenses = [
+/* const expenses = [
   {
     name: "Supermarket Shopping",
     category: "Food",
@@ -16,19 +16,20 @@ const expenses = [
     category: "Entertainment",
     amount: 49.90
   }
-];
+]; */
 
 
 </script>
 
 <template>
-  <div class="container">
-    <ExpenseCard v-for="(expense, index) in expenses" :key="index" :expense="expense" />
+  <Header :title="'Expense Manager Stage 1'" />
+  <div class="container-content">
+    <!-- <ExpenseCard v-for="(expense, index) in expenses" :key="index" :expense="expense" /> -->
   </div>
 </template>
 
 <style scoped>
-.container {
+.container-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,5 +41,9 @@ const expenses = [
   width: 100%;
   height: 100vh;
   gap: 5px;
+}
+
+.page-top {
+  
 }
 </style>
