@@ -1,11 +1,14 @@
-<script setup lang="ts">
-import MainScreen from './pages/MainScreen.vue'
-</script>
-
 <template>
-  <MainScreen />
+  <router-view />
 </template>
 
-<style scoped>
+<script>
+import { defineComponent } from 'vue';
 
+export default defineComponent({
+  name: 'App'
+});
+</script>
+
+<style scoped>
 </style>

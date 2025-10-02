@@ -1,18 +1,8 @@
 <template>
   <div>
     <label v-if="label" :for="inputId">{{ label }}</label>
-    <input
-      :id="inputId"
-      :type="type"
-      :placeholder="placeholder"
-      :value="value"
-      :disabled="disabled"
-      :readonly="readonly"
-      :maxlength="maxlength"
-      :autofocus="autofocus"
-      :style="inputStyle"
-      @input="updateValue"
-    />
+    <input :id="inputId" :type="type" :placeholder="placeholder" :value="value" :disabled="disabled"
+      :readonly="readonly" :maxlength="maxlength" :autofocus="autofocus" :style="inputStyle" @input="updateValue" />
   </div>
 </template>
 
@@ -22,7 +12,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: '', // Texto para o label do campo
+      default: '', // Text for the label field
     },
     value: {
       type: [String, Number],
@@ -30,7 +20,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'text', // Tipo de input: text, password, email, etc
+      default: 'text', // Input type: text, password, email, etc
     },
     placeholder: {
       type: String,
@@ -54,7 +44,7 @@ export default {
     },
     inputStyle: {
       type: Object,
-      default: () => ({}), // Para passar estilos inline
+      default: () => ({}), // For inline styles
     },
     inputId: {
       type: String,

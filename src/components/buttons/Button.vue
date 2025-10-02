@@ -1,7 +1,7 @@
 <template>
-  <button
-    :class="buttonClass"
-    :style="buttonStyle"
+  <button 
+    :class="buttonClass" 
+    :style="buttonStyle" 
     @click="handleClick"
   >
     <slot>{{ label }}</slot>
@@ -14,15 +14,15 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Clique aqui',
+      default: 'Click here',
     },
     color: {
       type: String,
-      default: 'blue',
+      default: '#00B5AD', // Cor padrão em hexadecimal (Teal)
     },
     size: {
       type: String,
-      default: 'medium', 
+      default: 'medium',
     },
     disabled: {
       type: Boolean,
@@ -30,7 +30,7 @@ export default {
     },
     buttonClass: {
       type: String,
-      default: '', 
+      default: '',
     },
     buttonStyle: {
       type: Object,
@@ -42,57 +42,57 @@ export default {
       return {
         'btn': true,
         [`btn-${this.size}`]: true,
-        [`btn-${this.color}`]: true,
         'btn-disabled': this.disabled,
         [this.buttonClass]: this.buttonClass,
       };
-    }
+    },
+    buttonStyle() {
+      return {
+        backgroundColor: this.disabled ? '#808080' : this.color, // Se desabilitado, usa a cor grey
+        ...this.buttonStyle, // Mantém as demais propriedades de estilo passadas como parâmetro
+      };
+    },
   },
   methods: {
     handleClick() {
       if (!this.disabled) {
         this.$emit('click');
       }
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
-
 .btn {
   padding: 10px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.1s ease, filter 0.1s ease; /* Suaviza a transição do hover */
 }
+
 .btn-small {
   font-size: 12px;
   padding: 5px 10px;
 }
+
 .btn-medium {
   font-size: 16px;
   padding: 10px 20px;
 }
+
 .btn-large {
   font-size: 20px;
   padding: 15px 30px;
 }
-.btn-blue {
-  background-color: rgb(71, 169, 255);
-  color: white;
-}
-.btn-red {
-  background-color: red;
-  color: white;
-}
-.btn-teal {
-  background-color: #00B5AD;
-  color: white;
-}
+
 .btn-disabled {
   background-color: grey;
   cursor: not-allowed;
 }
 
+.btn:hover {
+  filter: brightness(70%);
+}
 </style>
