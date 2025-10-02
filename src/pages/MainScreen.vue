@@ -1,11 +1,20 @@
-<script setup lang="ts">
-/* import ExpenseCard from '../components/cards/ExpenseCard.vue'; */
-import Header from '../components/headers/Header.vue';
-/* function buttonClick() {
-  console.log('Botão clicado!');
-} */
+<template>
+  <Header :title="'Expense Manager Stage 1'" />
+  <div class="container-content">
+    <ExpenseCard v-for="(expense, index) in expenses" :key="index" :expense="expense" />
+    <Button @click="goToPageTest"/>
+  </div>
+</template>
 
-/* const expenses = [
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+import ExpenseCard from '../components/cards/ExpenseCard.vue';
+import Header from '../components/headers/Header.vue';
+import Button from '../components/buttons/Button.vue';
+
+const router = useRouter();
+
+const expenses = [
   {
     name: "Supermarket Shopping",
     category: "Food",
@@ -16,17 +25,13 @@ import Header from '../components/headers/Header.vue';
     category: "Entertainment",
     amount: 49.90
   }
-]; */
+];
 
+function goToPageTest() {
+  router.push('/test');
+}
 
 </script>
-
-<template>
-  <Header :title="'Expense Manager Stage 1'" />
-  <div class="container-content">
-    <!-- <ExpenseCard v-for="(expense, index) in expenses" :key="index" :expense="expense" /> -->
-  </div>
-</template>
 
 <style scoped>
 .container-content {
@@ -43,7 +48,4 @@ import Header from '../components/headers/Header.vue';
   gap: 5px;
 }
 
-.page-top {
-  
-}
 </style>
